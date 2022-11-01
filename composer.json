@@ -1,6 +1,34 @@
 {
-    "require": {
-        "longman/telegram-bot": "^0.79.0",
-        "vlucas/phpdotenv": "^5.5"
-    }
+	"name": "webmasterskaya/resmes-bot",
+	"type": "project",
+	"description": "Remove Service Messages - PHP Telegram bot",
+	"keywords": [
+		"telegram",
+		"bot",
+		"service messages"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/webmasterskaya/resmes-bot",
+	"support": {
+		"issues": "https://github.com/webmasterskaya/resmes-bot/issues",
+		"source": "https://github.com/webmasterskaya/resmes-bot"
+	},
+	"authors": [
+		{
+			"name": "Artem Vasilev aka kernusr",
+			"email": "kern.usr@gmail.com",
+			"homepage": "https://webmasterskaya.xyz/",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": "^7.4|^8.0",
+		"longman/telegram-bot": "^0.79.0",
+		"vlucas/phpdotenv": "^5.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"Webmasterskaya\\ResmesBot\\": "src"
+		}
+	}
 }
