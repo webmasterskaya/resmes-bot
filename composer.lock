@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe41ebf9c8c6c1de13a4def22eb36ab8",
+    "content-hash": "d1006e56da53af2f04994c871295d131",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -1227,15 +1227,172 @@
                 }
             ],
             "time": "2022-10-16T01:01:54+00:00"
+        },
+        {
+            "name": "webmasterskaya/tbc-remove-join-messages",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmasterskaya/tbc-remove-join-messages.git",
+                "reference": "ed1a2d15b1f72c38fe6053ec7c745675a66e1ed5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmasterskaya/tbc-remove-join-messages/zipball/ed1a2d15b1f72c38fe6053ec7c745675a66e1ed5",
+                "reference": "ed1a2d15b1f72c38fe6053ec7c745675a66e1ed5",
+                "shasum": ""
+            },
+            "require": {
+                "longman/telegram-bot": "^0.79.0",
+                "php": "^7.4|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webmasterskaya\\TelegramBotCommands\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Vasilev aka kernusr",
+                    "email": "kern.usr@gmail.com",
+                    "homepage": "https://webmasterskaya.xyz/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Telegram bot command for remove join messages ",
+            "homepage": "https://github.com/webmasterskaya/tbc-remove-join-messages",
+            "keywords": [
+                "bot",
+                "join message",
+                "leave message",
+                "telegram"
+            ],
+            "support": {
+                "issues": "https://github.com/webmasterskaya/tbc-remove-join-messages/issues",
+                "source": "https://github.com/webmasterskaya/tbc-remove-join-messages"
+            },
+            "time": "2022-11-01T12:35:47+00:00"
+        },
+        {
+            "name": "webmasterskaya/tbc-remove-pinned-messages",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmasterskaya/tbc-remove-pinned-messages.git",
+                "reference": "b44edfc7eaabe2e22195fc8926bfbf1cbe45d812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmasterskaya/tbc-remove-pinned-messages/zipball/b44edfc7eaabe2e22195fc8926bfbf1cbe45d812",
+                "reference": "b44edfc7eaabe2e22195fc8926bfbf1cbe45d812",
+                "shasum": ""
+            },
+            "require": {
+                "longman/telegram-bot": "^0.79.0",
+                "php": "^7.4|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webmasterskaya\\TelegramBotCommands\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Vasilev aka kernusr",
+                    "email": "kern.usr@gmail.com",
+                    "homepage": "https://webmasterskaya.xyz/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Telegram bot command for remove pinned messages ",
+            "homepage": "https://github.com/webmasterskaya/tbc-remove-pinned-messages",
+            "keywords": [
+                "bot",
+                "pinned message",
+                "telegram"
+            ],
+            "support": {
+                "issues": "https://github.com/webmasterskaya/tbc-remove-pinned-messages/issues",
+                "source": "https://github.com/webmasterskaya/tbc-remove-pinned-messages"
+            },
+            "time": "2022-11-01T12:30:12+00:00"
+        },
+        {
+            "name": "webmasterskaya/tbc-remove-voice-video-chat-messages",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmasterskaya/tbc-remove-voice-video-chat-messages.git",
+                "reference": "b9d8de1b6d4e6e033d4ffa413c8c962163b3e264"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmasterskaya/tbc-remove-voice-video-chat-messages/zipball/b9d8de1b6d4e6e033d4ffa413c8c962163b3e264",
+                "reference": "b9d8de1b6d4e6e033d4ffa413c8c962163b3e264",
+                "shasum": ""
+            },
+            "require": {
+                "longman/telegram-bot": "^0.79.0",
+                "php": "^7.4|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webmasterskaya\\TelegramBotCommands\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Vasilev aka kernusr",
+                    "email": "kern.usr@gmail.com",
+                    "homepage": "https://webmasterskaya.xyz/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Telegram bot command for remove pinned messages ",
+            "homepage": "https://github.com/webmasterskaya/tbc-remove-voice-video-chat-messages",
+            "keywords": [
+                "bot",
+                "telegram",
+                "video chat ended",
+                "video chat started",
+                "voice chat ended",
+                "voice chat started"
+            ],
+            "support": {
+                "issues": "https://github.com/webmasterskaya/tbc-remove-voice-video-chat-messages/issues",
+                "source": "https://github.com/webmasterskaya/tbc-remove-voice-video-chat-messages"
+            },
+            "time": "2022-11-01T13:04:18+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "webmasterskaya/tbc-remove-join-messages": 20,
+        "webmasterskaya/tbc-remove-pinned-messages": 20,
+        "webmasterskaya/tbc-remove-voice-video-chat-messages": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.4|^8.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
 }

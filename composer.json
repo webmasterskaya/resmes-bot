@@ -24,11 +24,28 @@
 	"require": {
 		"php": "^7.4|^8.0",
 		"longman/telegram-bot": "^0.79.0",
-		"vlucas/phpdotenv": "^5.5"
+		"vlucas/phpdotenv": "^5.5",
+		"webmasterskaya/tbc-remove-join-messages": "dev-master",
+		"webmasterskaya/tbc-remove-pinned-messages": "dev-master",
+		"webmasterskaya/tbc-remove-voice-video-chat-messages": "dev-master"
 	},
 	"autoload": {
 		"psr-4": {
 			"Webmasterskaya\\ResmesBot\\": "src"
 		}
-	}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:webmasterskaya/tbc-remove-join-messages.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:webmasterskaya/tbc-remove-pinned-messages.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:webmasterskaya/tbc-remove-voice-video-chat-messages.git"
+		}
+	]
 }
