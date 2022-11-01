@@ -1,0 +1,9 @@
+<Files ~ "\.(env|gitignore|gitattributes|lock|editorconfig)$">
+     Order allow,deny
+     Deny from all
+ </Files>
+ Options -Indexes
+  <Files ~ "(composer.json|composer.lock)$">
+      Order allow,deny
+      Deny from all
+  </Files>
