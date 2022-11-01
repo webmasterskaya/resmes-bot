@@ -24,16 +24,17 @@ class GenericmessageCommand extends BotCommands\SystemCommands\GenericmessageCom
 
 	public function executeAlways(): ServerResponse
 	{
-//		$message = $this->getMessage() ?: $this->getEditedMessage() ?: $this->getChannelPost() ?: $this->getEditedChannelPost();
-//		ob_start();
-//		echo "<pre>";
-//		var_dump($message);
-//		echo "</pre>";
+/*		$message = $this->getMessage() ?: $this->getEditedMessage() ?: $this->getChannelPost() ?: $this->getEditedChannelPost();
+		ob_start();
+		echo "<pre>";
+		var_dump($message);
+		echo "</pre>";*/
 
-		$this->replyToChat(ob_get_clean(), ['parse_mode' => 'HTML']);
+		$this->replyToUser(ob_get_clean(), ['parse_mode' => 'HTML']);
 
 		$this->telegram->executeCommand('removejoinmessages');
 		$this->telegram->executeCommand('removevoicevideochatmessages');
+		$this->telegram->executeCommand('addwatermark');
 
 //		$this->telegram->executeCommand('removepinnedmessages');
 

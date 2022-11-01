@@ -1,5 +1,7 @@
 <?php
 
+use Longman\TelegramBot\Entities\Update;
+use Longman\TelegramBot\Telegram;
 use Webmasterskaya\ResmesBot\Commands\AdminCommands as AdminCommands;
 use Webmasterskaya\ResmesBot\Commands\SystemCommands\GenericmessageCommand;
 use Webmasterskaya\TelegramBotCommands\Commands as TBC;
@@ -29,8 +31,47 @@ try
 	$telegram->addCommandClass(AdminCommands\WhoisCommand::class);
 
 	$telegram->addCommandClass(TBC\SystemCommands\RemoveJoinMessagesCommand::class);
-	$telegram->addCommandClass(TBC\SystemCommands\RemoveVoiceVideoChatMessagesCommand::class);
 //	$telegram->addCommandClass(TBC\SystemCommands\RemovePinnedMessagesCommand::class);
+	$telegram->addCommandClass(TBC\SystemCommands\RemoveVoiceVideoChatMessagesCommand::class);
+
+	$telegram->addCommandClass(TBC\UserCommands\AddWatermarkCommand::class);
+	$telegram->setCommandConfig('addwatermark', [
+		'watermark_path' => realpath(dirname(__FILE__, 2) . '/' . ltrim($_ENV['BOT_WATERMARK_PATH'], '/')),
+	]);
+
+	$telegram->setDownloadPath(realpath(dirname(__FILE__, 2) . '/' . trim($_ENV['BOT_DOWNLOAD_PATH'], '/')));
+
+	$telegram->setUpdateFilter(function (Update $update, Telegram $telegram, &$reason = 'Update denied by update_filter') {
+
+		$bot_available_channels = array_map(function ($item) {
+			return (int) $item;
+		}, explode(',', $_ENV['BOT_AVAILABLE_CHANNELS']));
+
+		$chat_id = $update->getMessage()->getChat()->getId();
+
+		if (!empty($bot_available_channels) && !$update->getMessage()->getChat()->isPrivateChat())
+		{
+			$found = false;
+
+			foreach ($bot_available_channels as $bot_available_channel)
+			{
+				if ($chat_id === $bot_available_channel)
+				{
+					$found = true;
+					break;
+				}
+			}
+
+			if (!$found)
+			{
+				$reason = 'This chat is not hosted by a bot';
+
+				return false;
+			}
+		}
+
+		return true;
+	});
 
 	if (!empty($bot_admins))
 	{

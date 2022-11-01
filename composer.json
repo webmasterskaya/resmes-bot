@@ -27,7 +27,8 @@
 		"vlucas/phpdotenv": "^5.5",
 		"webmasterskaya/tbc-remove-join-messages": "dev-master",
 		"webmasterskaya/tbc-remove-pinned-messages": "dev-master",
-		"webmasterskaya/tbc-remove-voice-video-chat-messages": "dev-master"
+		"webmasterskaya/tbc-remove-voice-video-chat-messages": "dev-master",
+		"webmasterskaya/tbc-add-image-watermark": "dev-master"
 	},
 	"autoload": {
 		"psr-4": {
@@ -46,6 +47,10 @@
 		{
 			"type": "vcs",
 			"url": "git@github.com:webmasterskaya/tbc-remove-voice-video-chat-messages.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:webmasterskaya/tbc-add-image-watermark.git"
 		}
 	]
 }
