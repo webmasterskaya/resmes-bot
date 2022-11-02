@@ -3,6 +3,7 @@
 use Longman\TelegramBot\Entities\Update;
 use Longman\TelegramBot\Telegram;
 use Webmasterskaya\ResmesBot\Commands\AdminCommands as AdminCommands;
+use Webmasterskaya\ResmesBot\Commands\SystemCommands\CallbackqueryCommand;
 use Webmasterskaya\ResmesBot\Commands\SystemCommands\GenericmessageCommand;
 use Webmasterskaya\TelegramBotCommands\Commands as TBC;
 
@@ -23,6 +24,7 @@ try
 	$telegram = new Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
 
 	$telegram->addCommandClass(GenericmessageCommand::class);
+	$telegram->addCommandClass(CallbackqueryCommand::class);
 
 	$telegram->addCommandClass(AdminCommands\ChatsCommand::class);
 	$telegram->addCommandClass(AdminCommands\CleanupCommand::class);
@@ -35,7 +37,11 @@ try
 	$telegram->addCommandClass(TBC\SystemCommands\RemoveVoiceVideoChatMessagesCommand::class);
 
 	$telegram->addCommandClass(TBC\UserCommands\AddWatermarkCommand::class);
+	$telegram->addCommandClass(TBC\UserCommands\AddWatermarkCallbackqueryCommand::class);
 	$telegram->setCommandConfig('addwatermark', [
+		'watermark_path' => realpath(dirname(__FILE__, 2) . '/' . ltrim($_ENV['BOT_WATERMARK_PATH'], '/')),
+	]);
+	$telegram->setCommandConfig('addwatermark_callbackquery', [
 		'watermark_path' => realpath(dirname(__FILE__, 2) . '/' . ltrim($_ENV['BOT_WATERMARK_PATH'], '/')),
 	]);
 
@@ -47,28 +53,32 @@ try
 			return (int) $item;
 		}, explode(',', $_ENV['BOT_AVAILABLE_CHANNELS']));
 
-		$chat_id = $update->getMessage()->getChat()->getId();
+		if($update->getUpdateType() == Update::TYPE_MESSAGE){
+			$chat_id = $update->getMessage()->getChat()->getId();
 
-		if (!empty($bot_available_channels) && !$update->getMessage()->getChat()->isPrivateChat())
-		{
-			$found = false;
-
-			foreach ($bot_available_channels as $bot_available_channel)
+			if (!empty($bot_available_channels) && !$update->getMessage()->getChat()->isPrivateChat())
 			{
-				if ($chat_id === $bot_available_channel)
+				$found = false;
+
+				foreach ($bot_available_channels as $bot_available_channel)
 				{
-					$found = true;
-					break;
+					if ($chat_id === $bot_available_channel)
+					{
+						$found = true;
+						break;
+					}
+				}
+
+				if (!$found)
+				{
+					$reason = 'This chat is not hosted by a bot';
+
+					return false;
 				}
 			}
-
-			if (!$found)
-			{
-				$reason = 'This chat is not hosted by a bot';
-
-				return false;
-			}
 		}
+
+
 
 		return true;
 	});
